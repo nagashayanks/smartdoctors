@@ -18,7 +18,7 @@ export class DoctorComponent implements OnInit {
   constructor(
     private api: Service,
     private url: UrlConfig,
-    private common: CommonService) { }
+    public common: CommonService) { }
 
   ngOnInit() {
     this.getAppointmentListDoctor();
@@ -71,5 +71,10 @@ private getAppointmentListDoctor() {
     error => {
       this.spinner = false;
     });
+}
+public modalAction(action: string): void {
+  if (action === 'Ok') {
+    this.common.alertConfigDefaultValue();
+  }
 }
 }

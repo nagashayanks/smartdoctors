@@ -60,4 +60,9 @@ describe('DoctorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Should check modalAction', () => {
+    const action =  'Ok';
+    component.modalAction(action);
+    expect(action).toEqual(action);
+  });
 });
