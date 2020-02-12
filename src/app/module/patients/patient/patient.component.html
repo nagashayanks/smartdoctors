@@ -14,10 +14,10 @@
             </div>
         </div>
     </div>
-    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="transactionHistoryList">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="transactionHistoryList?.length">
         <app-grid [gridData]="transactionHistoryList" [gridColumnDefinition]="gridColumns"
             (getAction)="getAction($event)" [sorting]="sorting" [pageLinks]="pageLinks" [pagination]="pagination"
-            *ngIf="transactionHistoryList">
+            *ngIf="transactionHistoryList?.length">
         </app-grid>
     </div>
     <div class="card mt-3" *ngIf="doctorlist">
@@ -28,18 +28,18 @@
             </div>
             <table class="col-xs-9 col-md-9">
                 <tr>
-                    <td>Doctor Id</td>
-                    <td class="headings">{{ doctorlist?.doctorId}}</td>
+                    
                     <td>Doctor Name</td>
                     <td class="headings">{{ doctorlist?.doctorName}}</td>
                     <td>Experiance</td>
                     <td class="headings">{{ doctorlist?.experience}}</td>
-                </tr>
-                <tr>
                     <td>Rating</td>
                     <td class="headings">{{ doctorlist?.rating}}</td>
+                </tr>
+                <tr>
+                    
                     <td>Phone No</td>
-                    <td class="headings">{{ doctorlist?.phoneNumber}}</td>
+                    <td class="headings">{{ doctorlist?.mobile}}</td>
                     <td>Consultation Fees</td>
                     <td class="headings">{{ doctorlist?.consultationFee}}</td>
                 </tr>
