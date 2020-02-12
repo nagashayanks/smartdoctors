@@ -1,3 +1,11 @@
-<div class="container mt-5">
-    djhbdf
+<div class="container ">
+  <div class="doctor-container">
+    <h3>View Booked Appointments</h3>
+    <div class="grid-container">
+        <app-grid [gridData]="bookedAppointmentDoctors" [gridColumnDefinition]="gridColumns"
+             [sorting]="sorting" [pageLinks]="pageLinks" [pagination]="pagination"
+            *ngIf="bookedAppointmentDoctors">
+        </app-grid>
+    </div>
+</div>
 </div>

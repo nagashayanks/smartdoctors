@@ -13,3 +13,14 @@ export interface TransactionSummary {
     transactionDate: string;
     availableBalance: number;
 }
+export interface BookedslotAppointments{
+
+    hospitalName: string;
+    date: string;
+    slotTime: string;
+    patientId: number;
+    patientName: string;
+    email: string;
+    mobile: number;
+
+ }
