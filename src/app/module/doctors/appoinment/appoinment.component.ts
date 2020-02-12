@@ -47,7 +47,7 @@ export class AppoinmentComponent implements OnInit {
     } else if (action === 'Close') {
       this.spinner = false;
       this.common.alertConfigDefaultValue();
-      this.reset()
+      this.reset();
     }
   }
 
@@ -57,7 +57,7 @@ export class AppoinmentComponent implements OnInit {
    */
   public addAppoinment() {
     this.submitted = true;
-    if (this.appointmentForm.valid) {
+    if (this.appointmentForm.valid && !this.appointmentErrorFlag) {
       this.spinner = true;
       const postObject = {
         doctorId: this.common.loggedUser() ? this.common.loggedUser().userId : null,

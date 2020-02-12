@@ -10,7 +10,7 @@ const routes: Routes = [
     component: PatientComponent
   },
   {
-    path: 'book-appoinment/:id',
+    path: 'book-appointment',
     component: BookAppointmentComponent
   }
 ];

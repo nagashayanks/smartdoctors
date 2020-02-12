@@ -8,16 +8,16 @@ import { of } from 'rxjs';
 import { PrimeModule } from 'src/app/shared/primeng-module';
 import { GridComponent } from 'src/app/shared/grid/grid.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BookAppointmentComponent', () => {
   let component: BookAppointmentComponent;
   let fixture: ComponentFixture<BookAppointmentComponent>;
   let api: Service;
-  const fakeActivatedRoute = {
-    snapshot: { data: {} }
-}
+  // const fakeActivatedRoute = {
+  //   snapshot: { params: { ... } }
+  // } as ActivatedRoute;
+
   const MockUserService = {
     // isValidUser: false,
     // setValidUser: (flag: boolean) => { MockUserService.isValidUser = flag; },
@@ -53,8 +53,7 @@ describe('BookAppointmentComponent', () => {
       imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule, RouterTestingModule],
       providers: [
         { provide: Service, useValue: MockUserService },
-        UrlConfig, {provide: ActivatedRoute, useClass: fakeActivatedRoute}
-       ]
+        UrlConfig ]
     })
     .compileComponents();
     api = TestBed.get(Service);
