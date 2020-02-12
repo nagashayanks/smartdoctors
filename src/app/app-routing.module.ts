@@ -14,7 +14,8 @@ const routes: Routes = [
     },
     {
       path: 'doctor',
-      loadChildren: () => import(`./module/doctors/doctors.module`).then(m => m.DoctorsModule)
+      loadChildren: () => import(`./module/doctors/doctors.module`).then(m => m.DoctorsModule),
+      canActivate: [AuthGuard]
     },
     {
       path: 'patient',
