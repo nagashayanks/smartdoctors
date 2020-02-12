@@ -1,6 +1,20 @@
 <div class="container mt" style="text-align: center">
-    <input pInputText type="text" name="searchText"  size="50"
-      placeholder="Search Doctors by Its Name and specialization" />
-    <button pButton (click)="search()" label="Search" icon="pi pi-search-plus" class="ml-2"></button>
-
-  </div>
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4 mr-3 mb-3">
+                <p-dropdown [options]="cities2" placeholder="INR" optionLabel="name" [showClear]="true"
+                   ></p-dropdown>
+            </div>
+            <div class="ui-grid-col-6 mr-3 mb-3">
+            <input pInputText type="text" name="searchText"  size="50"
+                    placeholder="Search Doctors by Its Name and specialization" />
+            </div>
+            <div class="ui-grid-col-2    mr-3 mb-3">
+                               <button pButton (click)="search()" label="Search" icon="pi pi-search-plus" class="ml-2"></button>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+        
+    </div>
+</div>
