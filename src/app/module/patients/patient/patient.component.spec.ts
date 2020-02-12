@@ -5,7 +5,6 @@ import { Service } from 'src/app/service/service';
 import { Router } from '@angular/router';
 import { UrlConfig } from 'src/app/service/url-config';
 import { of } from 'rxjs';
-import { GridComponent } from 'src/app/shared/grid/grid.component';
 import { PrimeModule } from 'src/app/shared/primeng-module';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 
@@ -49,9 +48,6 @@ describe('PatientComponent', () => {
            specialization: 'ortho',
            consultationFees: 800
           }
-        ],
-        [
-          { locationId: 1, locationName: 'Bangalore' }
         ]
       );
     },
@@ -59,7 +55,7 @@ describe('PatientComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [PrimeModule, SharedModuleModule],
-      declarations: [ PatientComponent, GridComponent ],
+      declarations: [ PatientComponent ],
       providers: [ Service, { provide: Router, useValue: mockRouter },
       UrlConfig]
     })
@@ -78,10 +74,7 @@ describe('PatientComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should check locations', () => {
-    expect(api.getList('')).toBeTruthy();
-    expect(component).toBeTruthy();
-  });
+
 
   it('should check doctorDetails', () => {
     component.getDoctordetails();

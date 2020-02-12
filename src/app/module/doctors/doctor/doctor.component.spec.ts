@@ -6,7 +6,6 @@ import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 import { of } from 'rxjs';
 import { PrimeModule } from 'src/app/shared/primeng-module';
-import { GridComponent } from 'src/app/shared/grid/grid.component';
 describe('DoctorComponent', () => {
   let component: DoctorComponent;
   let fixture: ComponentFixture<DoctorComponent>;
@@ -41,7 +40,7 @@ describe('DoctorComponent', () => {
   };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DoctorComponent, GridComponent ],
+      declarations: [ DoctorComponent ],
       imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule],
       providers: [
         { provide: Service, useValue: MockUserService },
