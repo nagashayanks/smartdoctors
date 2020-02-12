@@ -3,6 +3,7 @@ import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 import { DoctorSummary } from 'src/app/model/model';
 import { CommonService } from 'src/app/service/common-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -23,16 +24,17 @@ export class PatientComponent implements OnInit {
   selectedLocation: any;
   doctorId: number;
   doctorlist: any;
+
   constructor(
     private api: Service,
     private url: UrlConfig,
-    private common: CommonService
+    private common: CommonService,
+    private router: Router
   ) {
   }
 
   ngOnInit() {
     this.getLocations();
-    this.getDoctorlist();
     this.search();
   }
 
@@ -64,44 +66,33 @@ export class PatientComponent implements OnInit {
         rowName: 'specialization',
       }, {
         colName: 'Consultation Fees',
-        rowName: 'consultationFees',
+        rowName: 'consultationFee',
       },
       {
         colName: 'Action',
-        action: [{ btnName: 'View', btnClass: 'padding' }]
+        action: [{ btnName: 'View', btnClass: 'padding' },
+        { btnName: 'Book', btnClass: 'padding' }]
       }
     ];
 
   }
   public getAction(event) {
-    console.log(event.val.doctorId);
-    this.getDoctordetails();
+    this.doctorId = event.val.doctorId;
+    if (event.gridAction.btnName === 'Book') {
+      this.router.navigate(['/doctor/book-appoinment/', event.val.doctorId]);
+    } else if (event.gridAction.btnName === 'View') {
+      this.getDoctordetails();
+    } else {
+      console.log(event.val.doctorId);
+      this.getDoctordetails();
+    }
+
   }
-  /*  Get Doctorlist history*/
-  private getDoctorlist() {
-    this.submitted = true;
-    this.generateGridColumn();
-    this.spinner = true;
-    const account = sessionStorage.getItem('accountNumber');
-    const params = `/${account}/transactions`;
-    /* Api call*/
-    this.api.getList(this.url.urlConfig().doctorHistory)
-      .subscribe(summary => {
-        this.spinner = false;
-        if (summary) {
-          this.transactionHistoryList = summary;
-        } else {
-          this.common.alertConfig = this.common.modalConfig('Error', summary.message, true, [{ name: 'Ok' }]);
-        }
-      },
-        error => {
-          this.spinner = false;
-        });
-  }
+
   /**
    * method to fetch all doctor details
    */
-  private getDoctordetails() {
+  public getDoctordetails() {
     const params = `/${this.doctorId}`;
     this.api.getList(this.url.urlConfig().doctors.concat(params)).subscribe(searchData => {
       this.doctorlist = searchData;
@@ -110,11 +101,15 @@ export class PatientComponent implements OnInit {
   }
 
   private search() {
-    const params = `/${this.selectedLocation.locationId}/doctors?name=${this.searchName}`;
+    const params = `/${this.selectedLocation ? this.selectedLocation.locationId : 0}/doctors?name=${this.searchName}`;
     console.log('name', params);
+    this.submitted = true;
+    this.generateGridColumn();
+    this.spinner = true;
     this.api.getList(this.url.urlConfig().locations.concat(params)).subscribe(searchData => {
-      this.templist = searchData;
-
+      this.spinner = false;
+      this.transactionHistoryList = searchData;
+      console.log('temp', this.transactionHistoryList);
     });
 
   }
