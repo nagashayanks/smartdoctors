@@ -1,6 +1,6 @@
-<div class="container mt" style="text-align: center">
+<div class="container mt" >
     <div class="ui-grid ui-grid-responsive ui-fluid">
-        <div class="ui-grid-row">
+        <div class="ui-grid-row" style="text-align: center">
             <div class="ui-grid-col-4 mr-3 mb-3">
                 <p-dropdown [options]="locations" placeholder="Select Location" optionLabel="locationName"
                  [(ngModel)]="selectedLocation"   [showClear]="true"></p-dropdown>{{selectedLocation | json}}
@@ -20,7 +20,7 @@
             *ngIf="transactionHistoryList">
         </app-grid>
     </div>
-    <div class="card mt-3">
+    <div class="card mt-3" *ngIf="doctorlist">
         <h5 class="card-header">Doctor Details</h5>
         <div class="card-body col-xs-12 col-md-12 summary row">
             <div class="col-xs-3 col-md-3">
