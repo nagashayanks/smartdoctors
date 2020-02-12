@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "trans": {
+    "smartdoctors": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/trans",
+            "outputPath": "dist/smartdoctors",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "trans:build"
+            "browserTarget": "smartdoctors:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "trans:build:production"
+              "browserTarget": "smartdoctors:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trans:build"
+            "browserTarget": "smartdoctors:build"
           }
         },
         "test": {
@@ -119,15 +119,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "trans:serve"
+            "devServerTarget": "smartdoctors:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "trans:serve:production"
+              "devServerTarget": "smartdoctors:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "trans"
+  "defaultProject": "smartdoctors"
 }
