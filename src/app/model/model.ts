@@ -10,3 +10,14 @@ export interface DoctorSummary {
    specialization: string;
    consultationFees: number;
 }
+export interface BookedslotAppointments {
+
+    hospitalName: string;
+    date: string;
+    slotTime: string;
+    patientId: number;
+    patientName: string;
+    email: string;
+    mobile: number;
+
+ }

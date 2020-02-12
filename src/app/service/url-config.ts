@@ -12,10 +12,12 @@ export class UrlConfig {
             userLogin: 'http://10.117.189.111:9090/housepital/' + 'users',
             doctorHistory: this.apiMock + 'doctorList',
             locations: this.apiMock + 'locations',
-            exchange: this.apiMock + 'users',
-            transfer: this.apiMock + 'accounts/transactions',
-            accounts: this.apiMock + 'accounts',
-            doctors: this.apiMock + 'accounts'
+            doctors: this.apiMock + 'accounts',
+            appointments: this.apiMock + 'bookedAppointmentsDoctor',
+            currencies: this.apiMock + 'users',
+            hospitals: this.apiMock + 'accounts',
+            appointment: this.apiMock + 'doctors/appointments',
+
         };
     }
     /* url config with url Server list */
@@ -24,10 +26,11 @@ export class UrlConfig {
             userLogin: this.apiHost + 'users',
             doctorHistory: this.apiHost + 'doctorList',
             locations: this.apiHost + 'locations',
-            exchange: this.apiHost + 'currencies/exchange',
-            transfer: this.apiHost + 'accounts/transactions',
-            accounts: this.apiHost + 'accounts/',
-            doctors: this.apiHost + 'doctors'
+            doctors: this.apiHost + 'doctors',
+            appointments: this.apiMock + 'bookedAppointmentsDoctor',
+            currencies: this.apiHost + 'currencies',
+            hospitals: this.apiHost + 'hospitals/',
+            appointment: this.apiMock + 'doctors/appointments'
         };
     }
     /* return url */
