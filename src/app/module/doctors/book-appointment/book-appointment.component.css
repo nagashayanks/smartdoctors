@@ -1,0 +1,21 @@
+.show {
+    display: block;
+    background: #292525a1;
+}
+.fade{
+    opacity: 1!important;
+}
+.show .modal-dialog{
+    position: relative;
+    top: 20%;
+}
+.appointment-container{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translateY(-20%);
+  transform: translateY(-20%) translateX(-50%);
+}
+.appointment-container .dataheader{
+  color: #ff6200;
+}

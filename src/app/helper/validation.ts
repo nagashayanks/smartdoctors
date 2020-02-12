@@ -15,12 +15,8 @@ export class CustomValidation {
 
     /* Split time */
     public timeSplitup(dateString: Date) {
-        return {
-            hour: dateString.getHours(),
-            minute: dateString.getMinutes(),
-            nano: 0,
-            second: dateString.getSeconds()
-        };
+        return  `${dateString.getHours()} : ${dateString.getMinutes()}`;
+
     }
 
     /* Convert Date into json date response format(dd-mm-yy) */

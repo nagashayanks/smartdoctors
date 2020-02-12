@@ -87,7 +87,7 @@ export class AppoinmentComponent implements OnInit {
 
   /* To check appointment date valid*/
   public appointmentDateValid(event: Date) {
-    if (this.validate.checkFutureDate(new Date(), event )) {
+    if (this.validate.checkFutureDate(new Date(), event)) {
       this.appointmentErrorFlag = 'Appointment date should not be in the past date';
     } else {
       this.appointmentErrorFlag = '';
@@ -105,16 +105,17 @@ export class AppoinmentComponent implements OnInit {
         this.spinner = false;
         if (hospital) {
           this.hospitalList = hospital;
+          console.log(hospital);
         }
       }, error => {
         this.spinner = false;
       });
   }
-    /* Reset Action */
-    public reset() {
-      this.submitted = false;
-      this.appointmentForm.reset();
-    }
+  /* Reset Action */
+  public reset() {
+    this.submitted = false;
+    this.appointmentForm.reset();
+  }
   ngOnInit() {
     this.createForm();
     this.getHospitalList();
