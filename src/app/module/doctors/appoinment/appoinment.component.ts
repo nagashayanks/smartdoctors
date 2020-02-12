@@ -105,6 +105,7 @@ export class AppoinmentComponent implements OnInit {
         this.spinner = false;
         if (hospital) {
           this.hospitalList = hospital;
+          console.log(hospital);
         }
       }, error => {
         this.spinner = false;
