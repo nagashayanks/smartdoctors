@@ -61,3 +61,6 @@
         </div>
     </div>
 </div>
+<app-alert [alertObj]="common.alertConfig" *ngIf="common.alertConfig?.modalShow" (buttonAction)="modalAction($event)">
+</app-alert>
+<app-spinner [spinner]="spinner"></app-spinner>

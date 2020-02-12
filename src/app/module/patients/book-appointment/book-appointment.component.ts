@@ -71,7 +71,7 @@ export class BookAppointmentComponent implements OnInit {
         rowName: 'mobile',
       }, {
         colName: 'Action',
-        action: [{ btnName: 'Book', btnClass: '' }]
+        action: [{ btnName: 'Book', btnClass: 'padding' }]
       }
     ];
 

@@ -80,7 +80,7 @@ export class PatientComponent implements OnInit {
     this.doctorId = event.val.doctorId;
     if (event.gridAction.btnName === 'Book') {
       sessionStorage.setItem('doctorId', event.val.doctorId);
-      this.router.navigate(['/doctor/book-appoinment']);
+      this.router.navigate(['/patient/book-appointment']);
     } else if (event.gridAction.btnName === 'View') {
       this.getDoctordetails();
     } else {

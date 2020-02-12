@@ -15,7 +15,7 @@ export class CustomValidation {
 
     /* Split time */
     public timeSplitup(dateString: Date) {
-        return  `${dateString.getHours()} : ${dateString.getMinutes()}`;
+        return  `${dateString.getHours()}:${dateString.getMinutes()}`;
 
     }
 
