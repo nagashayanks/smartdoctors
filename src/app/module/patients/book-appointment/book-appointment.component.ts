@@ -67,9 +67,6 @@ export class BookAppointmentComponent implements OnInit {
         rowName: 'slotTime',
       },
       {
-        colName: 'Balance',
-        rowName: 'mobile',
-      }, {
         colName: 'Action',
         action: [{ btnName: 'Book', btnClass: 'padding' }]
       }
