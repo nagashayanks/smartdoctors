@@ -1,22 +1,16 @@
 {
-    "transactionList": [
+    "doctorList": [
         {
-            "transactionId": 1,
-            "sourceAccountNumber": 234234,
-            "destinationAccountNumber": 4234234,
-            "transactionType": "credit",
-            "transactionDate": "12-4-2020",
-            "transactionAmount": 6000,
-            "availableBalance": 10000
-        },
-        {
-            "transactionId": 1,
-            "sourceAccountNumber": 234234,
-            "destinationAccountNumber": 4234234,
-            "transactionType": "saving",
-            "transactionDate": "12-4-2020",
-            "transactionAmount": 6000,
-            "availableBalance": 10000
-        }
+            "doctorName":"ram",
+            "rating":4,
+           "specialization":"orthopedic",
+           "consultationFees":500
+            },
+         {
+            "doctorName":"ram",
+            "rating":4,
+           "specialization":"neuroSerjon",
+           "consultationFees":500
+            }
     ]
 }
