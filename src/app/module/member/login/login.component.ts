@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     /* Check whether login/not */
     if (!this.common.validUser()) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     }
     /* Call the form creation while on component initiation */
     this.createForm();

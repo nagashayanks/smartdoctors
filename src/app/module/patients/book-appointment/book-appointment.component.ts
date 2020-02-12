@@ -91,6 +91,7 @@ export class BookAppointmentComponent implements OnInit {
     if (action === 'Ok') {
       this.spinner = false;
       this.common.alertConfigDefaultValue();
+      this.bookingFlag = false;
     } else if (action === 'Yes') {
       this.confirmAppointment();
     }
@@ -110,12 +111,12 @@ export class BookAppointmentComponent implements OnInit {
         if (appointment.statusCode === 200) {
           this.spinner = false;
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            'Error', 'Appointment booked successfully',
             true, [{ name: 'Ok' }]
           );
         } else {
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            'Error', 'Sorry, There are some problems on your appointment',
             true, [{ name: 'Ok' }]
           );
           this.spinner = false;
