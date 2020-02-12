@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit {
       this.api.postCall(this.url.urlConfig().userLogin, postObject, 'post').subscribe(user => {
         if (user.statusCode === 200) {
           const userDetails = {
-            userName: user.userName,
-            userId: user.userId
+            userName: user.doctorName,
+            userId: user.doctorId
           };
           /* Stored the user details in session storage */
           sessionStorage.setItem('currentUser', JSON.stringify(userDetails));
