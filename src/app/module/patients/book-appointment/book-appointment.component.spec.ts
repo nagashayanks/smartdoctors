@@ -6,7 +6,6 @@ import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 import { of } from 'rxjs';
 import { PrimeModule } from 'src/app/shared/primeng-module';
-import { GridComponent } from 'src/app/shared/grid/grid.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -49,7 +48,7 @@ describe('BookAppointmentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookAppointmentComponent, GridComponent ],
+      declarations: [ BookAppointmentComponent ],
       imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule, RouterTestingModule],
       providers: [
         { provide: Service, useValue: MockUserService },
