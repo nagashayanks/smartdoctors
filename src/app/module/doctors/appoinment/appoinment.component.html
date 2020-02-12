@@ -1,7 +1,7 @@
 <div class="container appointment-container ">
     <div class="row">
-        <div class="col-12 col-sm-8x col-md-6 login-form">
-            <h3>Doctor Appointment</h3>
+        <div class="col-12 col-sm-8x col-md-6 d login-form">
+            <h3 class="dataheader">Doctor Appointment</h3>
             <form [formGroup]="appointmentForm" (ngSubmit)="addAppoinment()">
                 <div class="form-group">
                     <label for="hospital">Hospital: <strong class="asterisk">*</strong></label>
@@ -12,17 +12,20 @@
                     <div class="error" *ngIf="submitted  && appointment.hospitalId.errors  && appointment.hospitalId.errors.required">
                         Hospital  is <strong>required</strong>
                     </div>
-                    
+
                 </div>
                 <div class="form-group">
                     <div>
                         <label for="appointmentDate"> Appointment Date <strong><span
                                     class="required">*</span></strong></label>
-                    </div>
-                    <p-calendar formControlName="date" [monthNavigator]="true" [yearNavigator]="true"
+                    </div><div class="ui-grid ui-grid-responsive ui-fluid">
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-12 mb-3">
+                    <p-calendar  formControlName="date" [monthNavigator]="true" [yearNavigator]="true"
                         placeholder=" Admission Date *" [showIcon]="true" id="appointmentDate"
                         dateFormat="yy/mm/dd" yearRange="1960:2019" (onSelect)="appointmentDateValid($event)"> </p-calendar>
-                    <div class="error"
+                    </div></div></div>
+                        <div class="error"
                         *ngIf="submitted  && appointment.date.errors && appointment.date.errors.required ">
                         Appointment Date is <strong>required</strong>
                     </div>
@@ -34,9 +37,11 @@
                     <div>
                         <label for="fromTime"> From Time <strong>
                             <span class="required">*</span></strong></label>
-                    </div>
+                    </div><div class="ui-grid ui-grid-responsive ui-fluid">
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-12 mb-3">
                     <p-calendar formControlName="fromTime" placeholder="From Time *" [showIcon]="true" [timeOnly]="true" id="fromTime"
-                       > </p-calendar>
+                       > </p-calendar></div></div></div>
                     <div class="error"
                         *ngIf="submitted  && appointment.fromTime.errors && appointment.fromTime.errors.required ">
                         From Time is <strong>required</strong>
@@ -47,8 +52,11 @@
                         <label for="toTime"> To Time <strong>
                             <span class="required">*</span></strong></label>
                     </div>
+                    <div class="ui-grid ui-grid-responsive ui-fluid">
+                      <div class="ui-grid-row">
+                          <div class="ui-grid-col-12 mb-3">
                     <p-calendar formControlName="toTime" placeholder="To Time *" [showIcon]="true" [timeOnly]="true" id="toTime"
-                       > </p-calendar>
+                       > </p-calendar></div></div></div>
                     <div class="error"
                         *ngIf="submitted  && appointment.toTime.errors && appointment.toTime.errors.required ">
                         To Time is <strong>required</strong>
@@ -61,3 +69,6 @@
         </div>
     </div>
 </div>
+<app-alert [alertObj]="common.alertConfig" *ngIf="common.alertConfig?.modalShow" (buttonAction)="modalAction($event)">
+</app-alert>
+<app-spinner [spinner]="spinner"></app-spinner>

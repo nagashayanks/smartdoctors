@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           /* Stored the user details in session storage */
           sessionStorage.setItem('currentUser', JSON.stringify(userDetails));
           this.spinner = false;
-          this.router.navigate(['/transfer']);
+          this.router.navigate(['/doctor']);
         } else {
           this.common.alertConfig = this.common.modalConfig(
             'Error', this.userConstant.messageConstant()[user.statusCode],
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     /* Check whether login/not */
     if (!this.common.validUser()) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     }
     /* Call the form creation while on component initiation */
     this.createForm();

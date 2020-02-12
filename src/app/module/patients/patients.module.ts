@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { PatientsRoutingModule } from './patients-routing.module';
 import { PatientComponent } from './patient/patient.component';
-import { PrimeModule } from 'src/app/shared/primeng-module';
+import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
-import { GridComponent } from 'src/app/shared/grid/grid.component';
 
 
 @NgModule({
-  declarations: [PatientComponent, GridComponent],
+  declarations: [PatientComponent, BookAppointmentComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,
-    PrimeModule,
     SharedModuleModule
   ]
 })

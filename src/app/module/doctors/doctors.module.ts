@@ -5,17 +5,16 @@ import { DoctorsRoutingModule } from './doctors-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 import { AppoinmentComponent } from './appoinment/appoinment.component';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
-import { GridComponent } from 'src/app/shared/grid/grid.component';
-import { PrimeModule } from 'src/app/shared/primeng-module';
+
+
 
 
 @NgModule({
-  declarations: [DoctorComponent, AppoinmentComponent, GridComponent],
+  declarations: [DoctorComponent, AppoinmentComponent],
   imports: [
     CommonModule,
     DoctorsRoutingModule,
-    SharedModuleModule,
-    PrimeModule
+    SharedModuleModule
   ]
 })
 export class DoctorsModule { }

@@ -47,7 +47,7 @@ export class AppoinmentComponent implements OnInit {
     } else if (action === 'Close') {
       this.spinner = false;
       this.common.alertConfigDefaultValue();
-      this.reset()
+      this.reset();
     }
   }
 
@@ -57,26 +57,26 @@ export class AppoinmentComponent implements OnInit {
    */
   public addAppoinment() {
     this.submitted = true;
-    if (this.appointmentForm.valid) {
+    if (this.appointmentForm.valid && !this.appointmentErrorFlag) {
       this.spinner = true;
       const postObject = {
         doctorId: this.common.loggedUser() ? this.common.loggedUser().userId : null,
         hospitalId: Number(this.appointmentForm.value.hospitalId),
         date: this.validate.convertDate(this.appointmentForm.value.date),
         fromTime: this.validate.timeSplitup(this.appointmentForm.value.fromTime),
-        toTime: this.validate.timeSplitup(this.appointmentForm.value.toTime)
+        slotToTime: this.validate.timeSplitup(this.appointmentForm.value.toTime)
       };
       /* Api call*/
       this.api.postCall(this.url.urlConfig().appointment, postObject, 'post').subscribe(appointment => {
         if (appointment.statusCode === 200) {
           this.spinner = false;
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            '', 'Appointment slot added successfully',
             true, [{ name: 'Close' }]
           );
         } else {
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            '', appointment.message,
             true, [{ name: 'Ok' }]
           );
           this.spinner = false;
@@ -87,7 +87,7 @@ export class AppoinmentComponent implements OnInit {
 
   /* To check appointment date valid*/
   public appointmentDateValid(event: Date) {
-    if (this.validate.checkFutureDate(new Date(), event )) {
+    if (this.validate.checkFutureDate(new Date(), event)) {
       this.appointmentErrorFlag = 'Appointment date should not be in the past date';
     } else {
       this.appointmentErrorFlag = '';
@@ -105,16 +105,17 @@ export class AppoinmentComponent implements OnInit {
         this.spinner = false;
         if (hospital) {
           this.hospitalList = hospital;
+          console.log(hospital);
         }
       }, error => {
         this.spinner = false;
       });
   }
-    /* Reset Action */
-    public reset() {
-      this.submitted = false;
-      this.appointmentForm.reset();
-    }
+  /* Reset Action */
+  public reset() {
+    this.submitted = false;
+    this.appointmentForm.reset();
+  }
   ngOnInit() {
     this.createForm();
     this.getHospitalList();

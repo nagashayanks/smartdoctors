@@ -1,15 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DoctorComponent } from './doctor.component';
+
+import { BookAppointmentComponent } from './book-appointment.component';
 import { SharedModuleModule } from 'src/app/shared/shared-module.module';
 import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
 import { of } from 'rxjs';
 import { PrimeModule } from 'src/app/shared/primeng-module';
-describe('DoctorComponent', () => {
-  let component: DoctorComponent;
-  let fixture: ComponentFixture<DoctorComponent>;
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+describe('BookAppointmentComponent', () => {
+  let component: BookAppointmentComponent;
+  let fixture: ComponentFixture<BookAppointmentComponent>;
   let api: Service;
+  // const fakeActivatedRoute = {
+  //   snapshot: { params: { ... } }
+  // } as ActivatedRoute;
+
   const MockUserService = {
     // isValidUser: false,
     // setValidUser: (flag: boolean) => { MockUserService.isValidUser = flag; },
@@ -36,32 +43,28 @@ describe('DoctorComponent', () => {
           }
         ]
       );
-    }
+    },
   };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DoctorComponent ],
-      imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule],
+      declarations: [ BookAppointmentComponent ],
+      imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule, RouterTestingModule],
       providers: [
         { provide: Service, useValue: MockUserService },
-        UrlConfig]
+        UrlConfig ]
     })
     .compileComponents();
     api = TestBed.get(Service);
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DoctorComponent);
+    fixture = TestBed.createComponent(BookAppointmentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-  it('Should check modalAction', () => {
-    const action =  'Ok';
-    component.modalAction(action);
-    expect(action).toEqual(action);
   });
 });

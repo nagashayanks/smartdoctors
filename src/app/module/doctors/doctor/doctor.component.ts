@@ -27,28 +27,28 @@ export class DoctorComponent implements OnInit {
  private generateGridColumn(): void {
   this.gridColumns = [
     {
-      colName: 'To Account',
+      colName: 'Hospital Name',
       rowName: 'hospitalName',
     }, {
-      colName: 'Amount',
+      colName: 'Date',
       rowName: 'date',
     }, {
-      colName: 'Transaction Type',
+      colName: 'Slot Time',
       rowName: 'slotTime',
     }, {
-      colName: 'Transaction Date',
+      colName: 'Patient Id',
       rowName: 'patientId',
     },
     {
-      colName: 'Balance',
+      colName: 'Patient Name',
       rowName: 'patientName',
     },
     {
-      colName: 'Balance',
+      colName: 'Contact Email',
       rowName: 'email',
     },
     {
-      colName: 'Balance',
+      colName: 'Contact No.',
       rowName: 'mobile',
     }
   ];
@@ -57,9 +57,9 @@ export class DoctorComponent implements OnInit {
 private getAppointmentListDoctor() {
   this.generateGridColumn();
   this.spinner = true;
-  // const params = `/${doctorId}/appointments`;
+  const params = `/${this.common.loggedUser() ? this.common.loggedUser().userId : null }/appointments`;
   /* Api call*/
-  this.api.getList(this.url.urlConfig().appointments)
+  this.api.getList(this.url.urlConfig().appointments.concat(params))
     .subscribe(doctorappointmentlist => {
       this.spinner = false;
       if (doctorappointmentlist) {
