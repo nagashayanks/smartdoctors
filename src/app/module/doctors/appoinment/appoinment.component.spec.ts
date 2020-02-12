@@ -34,15 +34,15 @@ describe('AppoinmentComponent', () => {
         ]
       );
     },
-    // postCall(url: string, data: any, type: string) {
-    //   return of({
-    //     doctorId: 123456,
-    //     hospitalId: 123,
-    //     date: '18-12-2020',
-    //     fromTime: '18:00',
-    //     toTime: '20:00'
-    //   });
-    // },
+    postCall(url: string, data: any, type: string) {
+      return of({
+        doctorId: 123456,
+        hospitalId: 123,
+        date: '18-12-2020',
+        fromTime: '18:00',
+        toTime: '20:00'
+      });
+    },
   };
     // create new instance of FormBuilder
   const formBuilder: FormBuilder = new FormBuilder();

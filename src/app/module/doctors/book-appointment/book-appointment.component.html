@@ -1,5 +1,5 @@
 <div class="container appointment-container">
-
+  <h3 class="dataheader">Book Appointments</h3>
     <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="appointmentList">
         <app-grid [gridData]="appointmentList" [gridColumnDefinition]="gridColumns" (getAction)="getAction($event)"
             [sorting]="sorting" [pageLinks]="pageLinks" [pagination]="pagination" *ngIf="appointmentList">
