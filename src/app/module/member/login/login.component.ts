@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   /*  Login form controls creation */
   private createForm() {
     this.loginForm = this.fb.group({
-      mobile: ['', Validators.required],
+      id: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
 
   /* Go to the page basedon type
-   @param mobile is user input
+   @param id is user input
    @param password is user input
  */
   public onClickSubmit() {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.spinner = true;
       const postObject = {
-        mobile: Number(this.loginForm.value.mobile),
+        id: Number(this.loginForm.value.id),
         password: this.loginForm.value.password
       };
       /* Api call*/
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           /* Stored the user details in session storage */
           sessionStorage.setItem('currentUser', JSON.stringify(userDetails));
           this.spinner = false;
-          this.router.navigate(['/transfer']);
+          this.router.navigate(['/doctor']);
         } else {
           this.common.alertConfig = this.common.modalConfig(
             'Error', this.userConstant.messageConstant()[user.statusCode],
