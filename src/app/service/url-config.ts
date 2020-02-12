@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlConfig {
-    serverConfig = true;
+    serverConfig = false;
     private apiHost = 'http://10.117.189.177:9090/housepital/';
     private apiMock = 'http://localhost:3000/';
     url = {};
@@ -9,11 +9,12 @@ export class UrlConfig {
     /* url config with url Mock list */
     urlMock() {
         return this.url = {
-            userLogin: 'http://10.117.189.111:9090/forexpay/' + 'users',
+            userLogin: 'http://10.117.189.111:9090/housepital/' + 'users',
+            doctorHistory: this.apiMock + 'doctorList',
+            locations: this.apiMock + 'locations',
+            doctors: this.apiMock + 'accounts',
             appointments: this.apiMock + 'bookedAppointmentsDoctor',
             currencies: this.apiMock + 'users',
-            exchange: this.apiMock + 'users',
-            transfer: this.apiMock + 'accounts/transactions',
             hospitals: this.apiMock + 'accounts',
             appointment: this.apiMock + 'doctors/appointments',
 
@@ -23,10 +24,11 @@ export class UrlConfig {
     urlApi() {
         return this.url = {
             userLogin: this.apiHost + 'users',
+            doctorHistory: this.apiHost + 'doctorList',
+            locations: this.apiHost + 'locations',
+            doctors: this.apiHost + 'doctors',
             appointments: this.apiMock + 'bookedAppointmentsDoctor',
             currencies: this.apiHost + 'currencies',
-            exchange: this.apiHost + 'currencies/exchange',
-            transfer: this.apiHost + 'accounts/transactions',
             hospitals: this.apiHost + 'hospitals/',
             appointment: this.apiMock + 'doctors/appointments'
         };

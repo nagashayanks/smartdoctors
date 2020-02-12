@@ -2,23 +2,48 @@
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4 mr-3 mb-3">
-                <p-dropdown [options]="cities2" placeholder="Select Location" optionLabel="name" [showClear]="true"></p-dropdown>
+                <p-dropdown [options]="locations" placeholder="Select Location" optionLabel="locationName"
+                 [(ngModel)]="selectedLocation"   [showClear]="true"></p-dropdown>{{selectedLocation | json}}
             </div>
             <div class="ui-grid-col-6 mr-3 mb-3">
-                <input pInputText type="text" name="searchText" size="50"
+                <input pInputText type="text" name="searchText" size="50" [(ngModel)]="searchName"
                     placeholder="Search Doctors by Its Name and specialization" />
             </div>
             <div class="ui-grid-col-2    mr-3 mb-3">
-                <button pButton (click)="search()" label="Search" icon="pi pi-search-plus" class="ml-2"></button>
+                <button pButton (click)="search()" label="Search" icon="pi pi-search-plus" class="ml-2" ></button>
             </div>
         </div>
     </div>
-    <div class="ui-grid ui-grid-responsive ui-fluid">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="transactionHistoryList">
         <app-grid [gridData]="transactionHistoryList" [gridColumnDefinition]="gridColumns"
             (getAction)="getAction($event)" [sorting]="sorting" [pageLinks]="pageLinks" [pagination]="pagination"
             *ngIf="transactionHistoryList">
         </app-grid>
     </div>
-    <div class="ui-grid ui-grid-responsive ui-fluid">
+    <div class="card mt-3">
+        <h5 class="card-header">Doctor Details</h5>
+        <div class="card-body col-xs-12 col-md-12 summary row">
+            <div class="col-xs-3 col-md-3">
+                <img src="{{doctorlist?.imageUrl}}" width="150" height="150" alt="Doctor Image" />
+            </div>
+            <table class="col-xs-9 col-md-9">
+                <tr>
+                    <td>Doctor Id</td>
+                    <td class="headings">{{ doctorlist?.doctorId}}</td>
+                    <td>Doctor Name</td>
+                    <td class="headings">{{ doctorlist?.doctorName}}</td>
+                    <td>Experiance</td>
+                    <td class="headings">{{ doctorlist?.experience}}</td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td class="headings">{{ doctorlist?.rating}}</td>
+                    <td>Phone No</td>
+                    <td class="headings">{{ doctorlist?.phoneNumber}}</td>
+                    <td>Consultation Fees</td>
+                    <td class="headings">{{ doctorlist?.consultationFee}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

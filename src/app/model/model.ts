@@ -4,16 +4,13 @@ export interface CurrentUser {
     userName: string;
 }
 
-export interface TransactionSummary {
-    transactionId: number;
-    sourceAccountNumber: number;
-    destinationAccountNumber: number;
-    transactionAmount: number;
-    transactionType: string;
-    transactionDate: string;
-    availableBalance: number;
+export interface DoctorSummary {
+    doctorName: string;
+    rating: number;
+   specialization: string;
+   consultationFees: number;
 }
-export interface BookedslotAppointments{
+export interface BookedslotAppointments {
 
     hospitalName: string;
     date: string;
