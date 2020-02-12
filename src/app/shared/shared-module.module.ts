@@ -12,14 +12,17 @@ import { ConstantService } from '../service/constant';
 import { CommonService } from 'src/app/service/common-service';
 import { OnlynumberDirective } from 'src/app/helper/allow-number.directive';
 import { CustomValidation } from '../helper/validation';
+import { GridComponent } from './grid/grid.component';
+import { PrimeModule } from './primeng-module';
 
 @NgModule({
-  declarations: [AlertComponent, SpinnerComponent, OnlynumberDirective],
+  declarations: [AlertComponent, SpinnerComponent, OnlynumberDirective, GridComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PrimeModule
   ],
   providers: [
     Service,
@@ -33,6 +36,8 @@ import { CustomValidation } from '../helper/validation';
     ReactiveFormsModule,
     AlertComponent,
     SpinnerComponent,
-    OnlynumberDirective ]
+    OnlynumberDirective,
+    PrimeModule ,
+    GridComponent ]
 })
 export class SharedModuleModule { }

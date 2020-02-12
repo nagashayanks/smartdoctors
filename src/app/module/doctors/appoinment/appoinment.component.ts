@@ -64,19 +64,19 @@ export class AppoinmentComponent implements OnInit {
         hospitalId: Number(this.appointmentForm.value.hospitalId),
         date: this.validate.convertDate(this.appointmentForm.value.date),
         fromTime: this.validate.timeSplitup(this.appointmentForm.value.fromTime),
-        toTime: this.validate.timeSplitup(this.appointmentForm.value.toTime)
+        slotToTime: this.validate.timeSplitup(this.appointmentForm.value.toTime)
       };
       /* Api call*/
       this.api.postCall(this.url.urlConfig().appointment, postObject, 'post').subscribe(appointment => {
         if (appointment.statusCode === 200) {
           this.spinner = false;
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            '', 'Appointment slot added successfully',
             true, [{ name: 'Close' }]
           );
         } else {
           this.common.alertConfig = this.common.modalConfig(
-            'Error', appointment.message,
+            '', appointment.message,
             true, [{ name: 'Ok' }]
           );
           this.spinner = false;
