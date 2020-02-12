@@ -1,7 +1,7 @@
 .doctor-container{
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-20%);
+  transform: translateY(-20%) translateX(-50%);
 }
