@@ -11,6 +11,7 @@ import { UrlConfig } from '../service/url-config';
 import { ConstantService } from '../service/constant';
 import { CommonService } from 'src/app/service/common-service';
 import { OnlynumberDirective } from 'src/app/helper/allow-number.directive';
+import { CustomValidation } from '../helper/validation';
 
 @NgModule({
   declarations: [AlertComponent, SpinnerComponent, OnlynumberDirective],
@@ -25,7 +26,8 @@ import { OnlynumberDirective } from 'src/app/helper/allow-number.directive';
     AuthGuard,
     UrlConfig,
     ConstantService,
-    CommonService
+    CommonService,
+    CustomValidation
   ],
   exports: [ FormsModule,
     ReactiveFormsModule,

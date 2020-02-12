@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlConfig {
     serverConfig = true;
-    private apiHost = 'http://10.117.189.177:9090/forexpay/';
+    private apiHost = 'http://10.117.189.177:9090/housepital/';
     private apiMock = 'http://localhost:3000/';
     url = {};
 
@@ -14,7 +14,8 @@ export class UrlConfig {
             currencies: this.apiMock + 'users',
             exchange: this.apiMock + 'users',
             transfer: this.apiMock + 'accounts/transactions',
-            accounts: this.apiMock + 'accounts',
+            hospitals: this.apiMock + 'accounts',
+            appointment: this.apiMock + 'doctors/appointments',
 
         };
     }
@@ -26,7 +27,8 @@ export class UrlConfig {
             currencies: this.apiHost + 'currencies',
             exchange: this.apiHost + 'currencies/exchange',
             transfer: this.apiHost + 'accounts/transactions',
-            accounts: this.apiHost + 'accounts/',
+            hospitals: this.apiHost + 'hospitals/',
+            appointment: this.apiMock + 'doctors/appointments'
         };
     }
     /* return url */
