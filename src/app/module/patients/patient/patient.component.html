@@ -3,7 +3,7 @@
         <div class="ui-grid-row" style="text-align: center">
             <div class="ui-grid-col-4 mr-3 mb-3">
                 <p-dropdown [options]="locations" placeholder="Select Location" optionLabel="locationName"
-                 [(ngModel)]="selectedLocation"   [showClear]="true"></p-dropdown>{{selectedLocation | json}}
+                 [(ngModel)]="selectedLocation"   [showClear]="true"></p-dropdown>
             </div>
             <div class="ui-grid-col-6 mr-3 mb-3">
                 <input pInputText type="text" name="searchText" size="50" [(ngModel)]="searchName"

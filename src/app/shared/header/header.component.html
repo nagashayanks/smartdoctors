@@ -10,8 +10,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'show toggle-height': toggleFlag}">
       <div class="navbar-nav" *ngIf="userDetails?.userName">
-          <a routerLink="/transfer" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Transfer</a>
-          <a routerLink="/transaction" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Histroy</a>
+          <a routerLink="/doctor/appoinment" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add Appointment slots</a>
+          <a routerLink="/doctor" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">View Appointment slots</a>
         </div>
       <div class="user-details icon" *ngIf="userDetails?.userName" [ngClass]="{'show toggle-class': toggleFlag}">
         Welcome, <strong>{{userDetails?.userName}}</strong>
