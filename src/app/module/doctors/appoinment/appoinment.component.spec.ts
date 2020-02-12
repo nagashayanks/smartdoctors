@@ -78,17 +78,17 @@ describe('AppoinmentComponent', () => {
     expect(component.appointmentForm.valid).toBeFalsy();
     // expect(mockRouter.navigate).toHaveBeenCalledWith(['/']);
   });
-  it('Should check valid user while onClickSubmit', () => {
+  // it('Should check valid user while addAppoinment', () => {
 
-
-    component.appointmentForm.controls.hospitalId.setValue('1234');
-    component.appointmentForm.controls.date.setValue('12-12-2020');
-    component.appointmentForm.controls.fromTime.setValue('13:00');
-    component.appointmentForm.controls.toTime.setValue('14:00');
-    component.addAppoinment();
-    component.submitted = true;
-    expect(component.spinner).toBeFalsy();
-  });
+  //   component.appointmentForm.controls.hospitalId.setValue(9);
+  //   component.appointmentForm.controls.date.setValue('12-12-2020');
+  //   component.appointmentForm.controls.fromTime.setValue('13:00');
+  //   component.appointmentForm.controls.toTime.setValue('14:00');
+  //   component.submitted = true;
+  //   component.appointmentErrorFlag = '';
+  //   component.addAppoinment();
+  // });
+  
   it('Should check modalAction', () => {
     const action =  'Ok';
     const action2 =  'Close';

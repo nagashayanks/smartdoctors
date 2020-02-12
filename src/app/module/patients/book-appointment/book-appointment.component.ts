@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/service/service';
 import { UrlConfig } from 'src/app/service/url-config';
-import { ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/service/common-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
@@ -24,7 +23,6 @@ export class BookAppointmentComponent implements OnInit {
     private api: Service,
     private url: UrlConfig,
     public common: CommonService,
-    private router: ActivatedRoute,
     private fb: FormBuilder
   ) { }
 
@@ -40,7 +38,7 @@ export class BookAppointmentComponent implements OnInit {
   /*  Access to book form fields */
   get book() { return this.appointmentForm.controls; }
   /* get list */
-  private getHospitalList(id: number): void {
+  private getHospitalList(id: string): void {
     this.spinner = true;
     this.generateGridColumn();
     const param = `${id}/availabilities`;
@@ -129,9 +127,10 @@ export class BookAppointmentComponent implements OnInit {
     this.bookingFlag = false;
   }
   ngOnInit() {
-    this.router.params.subscribe(params => {
-      this.getHospitalList(params.id);
-    });
+    const doctorId = sessionStorage.getItem('doctorId');
+    if (doctorId) {
+      this.getHospitalList(doctorId);
+    }
     this.createForm();
   }
 
