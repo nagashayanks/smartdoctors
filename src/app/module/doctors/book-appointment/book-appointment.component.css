@@ -1,0 +1,11 @@
+.show {
+    display: block;
+    background: #292525a1;
+}
+.fade{
+    opacity: 1!important;
+}
+.show .modal-dialog{
+    position: relative;
+    top: 20%;
+}
