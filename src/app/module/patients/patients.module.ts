@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { PatientsRoutingModule } from './patients-routing.module';
 import { PatientComponent } from './patient/patient.component';
+import { PrimeModule } from 'src/app/shared/primeng-module';
 
 
 @NgModule({
   declarations: [PatientComponent],
   imports: [
     CommonModule,
-    PatientsRoutingModule
+    PatientsRoutingModule,
+    PrimeModule
   ]
 })
 export class PatientsModule { }

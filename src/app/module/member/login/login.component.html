@@ -4,11 +4,11 @@
             <h3>Sign In</h3>
             <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit()">
                 <div class="form-group">
-                    <label for="id">Doctor Id: <strong class="asterisk">*</strong></label>
-                    <input type="text" class="form-control" placeholder="Doctor Id *" id="id" name="id"
-                        formControlName="id" required   numbersOnly  maxlength="6">
-                    <div class="error" *ngIf="submitted  && login.id.errors  && login.id.errors.required">
-                        Doctor Id is <strong>required</strong>
+                    <label for="mobile">Mobile Number: <strong class="asterisk">*</strong></label>
+                    <input type="text" class="form-control" placeholder="Mobile Number *" id="mobile" name="mobile"
+                        formControlName="mobile" required   numbersOnly  maxlength="10">
+                    <div class="error" *ngIf="submitted  && login.mobile.errors  && login.mobile.errors.required">
+                        Mobile number is <strong>required</strong>
                     </div>
                     
                 </div>
