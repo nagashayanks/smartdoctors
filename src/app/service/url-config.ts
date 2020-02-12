@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlConfig {
-    serverConfig = false;
+    serverConfig = true;
     private apiHost = 'http://10.117.189.177:9090/housepital/';
     private apiMock = 'http://localhost:3000/';
     url = {};
@@ -17,7 +17,8 @@ export class UrlConfig {
             currencies: this.apiMock + 'users',
             hospitals: this.apiMock + 'accounts',
             appointment: this.apiMock + 'doctors/appointments',
-
+            bookList: this.apiMock + 'doctors/',
+            confirmBook: this.apiHost + 'patients'
         };
     }
     /* url config with url Server list */
@@ -30,7 +31,9 @@ export class UrlConfig {
             appointments: this.apiMock + 'bookedAppointmentsDoctor',
             currencies: this.apiHost + 'currencies',
             hospitals: this.apiHost + 'hospitals/',
-            appointment: this.apiMock + 'doctors/appointments'
+            appointment: this.apiHost + 'doctors/appointments',
+            bookList: this.apiHost + 'doctors/',
+            confirmBook: this.apiHost + 'patients'
         };
     }
     /* return url */
