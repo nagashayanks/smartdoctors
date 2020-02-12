@@ -15,9 +15,9 @@ describe('BookAppointmentComponent', () => {
   let component: BookAppointmentComponent;
   let fixture: ComponentFixture<BookAppointmentComponent>;
   let api: Service;
-  const mockRouter = {
-    navigate: jasmine.createSpy('navigate')
-  };
+  const fakeActivatedRoute = {
+    snapshot: { data: {} }
+}
   const MockUserService = {
     // isValidUser: false,
     // setValidUser: (flag: boolean) => { MockUserService.isValidUser = flag; },
@@ -53,7 +53,8 @@ describe('BookAppointmentComponent', () => {
       imports: [SharedModuleModule, HttpClientTestingModule, PrimeModule, RouterTestingModule],
       providers: [
         { provide: Service, useValue: MockUserService },
-        UrlConfig, ActivatedRoute ]
+        UrlConfig, {provide: ActivatedRoute, useClass: fakeActivatedRoute}
+       ]
     })
     .compileComponents();
     api = TestBed.get(Service);
