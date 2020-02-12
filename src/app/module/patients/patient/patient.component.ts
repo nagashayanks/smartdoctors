@@ -42,11 +42,9 @@ export class PatientComponent implements OnInit {
    * method to fetch all currency values for dropdown
    */
   getLocations = () => {
-    console.log('locations');
     this.api.getList(this.url.urlConfig().locations).subscribe(order => {
       this.spinner = false;
       this.locations = order;
-      console.log('list', order);
     }, error => {
       this.spinner = false;
     });
@@ -70,8 +68,8 @@ export class PatientComponent implements OnInit {
       },
       {
         colName: 'Action',
-        action: [{ btnName: 'View', btnClass: 'padding' },
-        { btnName: 'Book', btnClass: 'padding' }]
+        action: [{ btnName: 'View', btnClass: 'padding mr-2' },
+        { btnName: 'Book', btnClass: 'padding ' }]
       }
     ];
 
@@ -83,7 +81,6 @@ export class PatientComponent implements OnInit {
     } else if (event.gridAction.btnName === 'View') {
       this.getDoctordetails();
     } else {
-      console.log(event.val.doctorId);
       this.getDoctordetails();
     }
 
@@ -102,14 +99,12 @@ export class PatientComponent implements OnInit {
 
   private search() {
     const params = `/${this.selectedLocation ? this.selectedLocation.locationId : 0}/doctors?name=${this.searchName}`;
-    console.log('name', params);
     this.submitted = true;
     this.generateGridColumn();
     this.spinner = true;
     this.api.getList(this.url.urlConfig().locations.concat(params)).subscribe(searchData => {
       this.spinner = false;
       this.transactionHistoryList = searchData;
-      console.log('temp', this.transactionHistoryList);
     });
 
   }
